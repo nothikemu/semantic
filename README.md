@@ -31,3 +31,10 @@ Without these values the app shows a setup notice and offers a **local demo mode
 ## Not implemented
 - Google/iCal/school-system calendar sync. Reminders are in-app only (shown on Today); no email or push.
 - Offline support, sharing, and real-time multi-device updates.
+
+## Deploy to GitHub Pages
+`.github/workflows/pages.yml` builds with `VITE_BASE=/<repo>/` and deploys on every push to `main`.
+1. Repo **Settings → Pages → Source: GitHub Actions**.
+2. Repo **Settings → Secrets and variables → Actions → Variables**: add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` (public values only).
+3. Add `https://<user>.github.io/<repo>/` and `https://<user>.github.io/<repo>/reset` to Supabase **Authentication → URL Configuration**.
+Without the variables the deployed site runs in local demo mode.

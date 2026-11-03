@@ -70,7 +70,7 @@ export function AuthPage({ mode }: { mode: Mode }) {
         if (error) throw error
         if (!data.session) setInfo('Account created. Check your email for a confirmation link, then sign in.')
       } else if (effective === 'forgot') {
-        const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), { redirectTo: `${window.location.origin}/reset` })
+        const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), { redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}reset` })
         if (error) throw error
         setInfo('If an account exists for that email, a reset link is on its way. It can take a minute.')
       } else {
